@@ -27,7 +27,7 @@ const generateAction = async (req, res) => {
 
   // I build Prompt #2.
   const secondPrompt = 
-  `take the meals and generate a recipe based on ingredients below. on the first line include the meal and the macros. then skip a line and list the ingredients. finally, skip another line and explain the preperation steps in detail.
+  `take the meals and generate a recipe for each one based on ingredients below. on the first line include the meal and the macros. then skip a line and list the ingredients. finally, skip another line and explain the preperation steps in detail.
   
   ingredients: ${req.body.userInput}
 

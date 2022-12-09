@@ -49,7 +49,7 @@ const callGenerateEndpoint = async () => {
           </div>
         </div>
         <div className="prompt-container">
-          <textarea placeholder="start typing here" className="prompt-box" value={userInput}
+          <textarea placeholder="Example: eggs, milk, cheese" className="prompt-box" value={userInput}
   onChange={onUserChangedText} />
   <div className="prompt-buttons">
   <a
@@ -65,7 +65,7 @@ const callGenerateEndpoint = async () => {
   <div className="output">
     <div className="output-header-container">
       <div className="output-header">
-        <h3>Meal Ideas</h3>
+        <h3>Meal Ideas:</h3>
       </div>
     </div>
     <div className="output-content">
