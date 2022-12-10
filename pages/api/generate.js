@@ -19,19 +19,19 @@ const generateAction = async (req, res) => {
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
-    temperature: 0.8,
-    max_tokens: 700,
+    temperature: 0.7,
+    max_tokens: 500,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
 
   // I build Prompt #2.
   const secondPrompt = 
-  `take the meals and generate a recipe for each one based on ingredients below. the recipes should come from popular cook books or cooking websites. on the first line include the meal and the macros. then skip a line and list the ingredients. finally, skip another line and explain the preperation steps in detail.
+  `take the meals and generate a recipe for each one based on the ingredients below. the recipe should come from a popular cook book. on the first line include the meal and the macros. then skip a line and list the ingredients. finally, explain the preperation steps in detail.
   
-  ingredients: ${req.body.userInput}
+  the ingredients: ${req.body.userInput}
 
-  meals: ${basePromptOutput.text}
+  the meals: ${basePromptOutput.text}
 
   meal ideas: 
   `
@@ -41,9 +41,9 @@ const generateAction = async (req, res) => {
     model: 'text-davinci-003',
     prompt: `${secondPrompt}\n`,
     // I set a higher temperature for this one. Up to you!
-    temperature: 0.85,
+    temperature: 0.7,
 		// I also increase max_tokens.
-    max_tokens: 1250,
+    max_tokens: 1500,
   });
   
   // Get the output
