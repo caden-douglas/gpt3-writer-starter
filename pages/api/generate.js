@@ -8,7 +8,7 @@ const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix =
 `
-give me a list of 3 meals using only the ingredients below.
+give me a list of 3 meals using only the ingredients below. the meals should come from cook books.
 
 ingredients: 
 `
