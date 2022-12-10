@@ -33,13 +33,13 @@ const generateAction = async (req, res) => {
 
   the meals: ${basePromptOutput.text}
 
-  meal ideas: 
+  meal: 
   `
   
   // I call the OpenAI API a second time with Prompt #2
   const secondPromptCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `${secondPrompt}\n`,
+    prompt: `${secondPrompt}`,
     // I set a higher temperature for this one. Up to you!
     temperature: 0.7,
 		// I also increase max_tokens.
