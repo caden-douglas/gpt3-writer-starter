@@ -8,7 +8,7 @@ export default function Document() {
         <meta property="og:description" content="built with buildspace" key="description"/>
         <meta
           property="og:image"
-          content="https://cdn.buildspace.so/courses/gpt3-writer/project-og.jphttps://thenounproject.com/api/private/icons/657180/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABjk9fKL1bKiYQfhXOu3DYbXuTjDF_-7KdvwpTDPws5EPw-py25S35CgEFuHIWxU_AwPSgadx-roqVM21ZklrDJbHv3yg%3D%3D"
+          content="https://hosting.photobucket.com/images/i/joecdouglas2/wizard_logo.jpeg"
         />
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
