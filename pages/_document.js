@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta property="og:title" content="Quizlet Wizard" key="title"/>
+        <meta property="og:title" content="Quizlet Generator" key="title"/>
         <meta property="og:description" content="built with buildspace" key="description"/>
         <meta
           property="og:image"

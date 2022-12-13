@@ -35,12 +35,12 @@ const callGenerateEndpoint = async () => {
     <div className="container-fluid">
     <div className="root">
       <Head>
-        <title>Quizlet Wizard</title>
+        <title>Quizlet Generator</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Welcome to Quizlet Wizard!</h1>
+            <h1>Welcome to Quizlet Generator!</h1>
           </div>
           <div className="header-subtitle">
             <h2>Instantly generate a Quizlet from any website on the internet!</h2>
