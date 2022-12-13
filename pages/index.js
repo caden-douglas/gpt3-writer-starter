@@ -32,24 +32,25 @@ const callGenerateEndpoint = async () => {
     setUserInput(event.target.value);
   };
   return (
+    <div className="container-fluid">
     <div className="root">
       <Head>
-        <title>MyMealWiz</title>
+        <title>Quizlet Wizard</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>My Meal Wizard</h1>
+            <h1>Welcome to Quizlet Wizard!</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Enter ingredients to generate recipes!</h2>
-            <div>
-            (Usually takes a few seconds)
+            <h2>Instantly generate a Quizlet from any website on the internet!</h2>
+            <div className="text-center">
+            (Usually takes 15-30 seconds)
           </div>
           </div>
         </div>
         <div className="prompt-container">
-          <textarea placeholder="Example: eggs, milk, cheese" className="prompt-box" value={userInput}
+          <textarea placeholder="Copy and paste the website url here..." className="prompt-box" value={userInput}
   onChange={onUserChangedText} />
   <div className="prompt-buttons">
   <a
@@ -65,7 +66,7 @@ const callGenerateEndpoint = async () => {
   <div className="output">
     <div className="output-header-container">
       <div className="output-header">
-        <h3>Meal Ideas:</h3>
+        <h3>Result</h3>
       </div>
     </div>
     <div className="output-content">
@@ -75,6 +76,7 @@ const callGenerateEndpoint = async () => {
 )}
         </div>
       </div>
+    </div>
     </div>
   );
 };
