@@ -34,22 +34,22 @@ const callGenerateEndpoint = async () => {
   return (
     <div className="root">
       <Head>
-        <title>MyMealWiz</title>
+        <title>DreamDecoder</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>My Meal Wizard</h1>
+            <h1>Welcome to your DreamDecoder</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Enter ingredients to generate recipes!</h2>
+            <h2>Describe your dream, the more detail the better!</h2>
             <div>
             (Usually takes a few seconds)
           </div>
           </div>
         </div>
         <div className="prompt-container">
-          <textarea placeholder="Example: eggs, milk, cheese" className="prompt-box" value={userInput}
+          <textarea placeholder="Dream goes here..." className="prompt-box" value={userInput}
   onChange={onUserChangedText} />
   <div className="prompt-buttons">
   <a
@@ -65,7 +65,7 @@ const callGenerateEndpoint = async () => {
   <div className="output">
     <div className="output-header-container">
       <div className="output-header">
-        <h3>Meal Ideas:</h3>
+        <h3>Meaning</h3>
       </div>
     </div>
     <div className="output-content">
