@@ -1,38 +1,95 @@
 import { useState } from 'react';
 import Head from 'next/head';
-
-import Login from './login';
-import Logout from './auth/logout';
-import Register from './auth/register';
+import LoginPage from './LoginPage';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
   const [apiOutput, setApiOutput] = useState('')
-const [isGenerating, setIsGenerating] = useState(false)
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
 
-const callGenerateEndpoint = async () => {
-  setIsGenerating(true);
-  
-  console.log("Calling OpenAI...")
-  const response = await fetch('/api/generate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ userInput }),
-  });
+  const handleLogin = async (email, password) => {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-  const data = await response.json();
-  const { output } = data;
-  console.log("OpenAI replied...", output.text)
+    const data = await response.json();
 
-  setApiOutput(`${output.text}`);
-  setIsGenerating(false);
-}
+    if (data.success) {
+      setLoggedIn(true);
+    } else {
+      alert(data.message);
+    }
+  };
+
+  const handleLogout = async () => {
+    const response = await fetch('/api/logout', {
+      method: 'POST',
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setLoggedIn(false);
+    } else {
+      alert(data.message);
+    }
+  };
+
+  const handleRegister = async (email, password) => {
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setLoggedIn(true);
+    } else {
+      alert(data.message);
+    }
+  };
+
+  const callGenerateEndpoint = async () => {
+    setIsGenerating(true);
+
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userInput }),
+    });
+
+    const data = await response.json();
+    const { output } = data;
+
+    setApiOutput(`${output.text}`);
+    setIsGenerating(false);
+  }
+
   const onUserChangedText = (event) => {
     console.log(event.target.value);
     setUserInput(event.target.value);
   };
+
+  if (!loggedIn) {
+    return <LoginPage onLogin={handleLogin} onRegister={handleRegister} />;
+  }
+
+  console.log("User is logged in");
+  console.log("User input is: ", userInput);
+  console.log("Is generating: ", isGenerating);
+  console.log("API output is: ", apiOutput);
+
   return (
     <div className="root">
       <Head>
