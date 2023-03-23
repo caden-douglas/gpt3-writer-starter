@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Head from 'next/head';
 
+import Login from './login';
+import Logout from './auth/logout';
+import Register from './auth/register';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
