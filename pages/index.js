@@ -85,20 +85,12 @@ const Home = () => {
     return <LoginPage onLogin={handleLogin} onRegister={handleRegister} />;
   }
 
-  console.log("User is logged in");
-  console.log("User input is: ", userInput);
-  console.log("Is generating: ", isGenerating);
-  console.log("API output is: ", apiOutput);
-
   return (
     <div className="root">
       <Head>
         <title>DreamDecoder</title>
       </Head>
       <div className="container">
-        {loggedIn ? (
-          <Logout onLogout={handleLogout} />
-        ) : (
           <div className="header">
             <div className="header-title">
               <h1>Welcome to your DreamDecoder</h1>
@@ -132,13 +124,6 @@ const Home = () => {
               )}
             </div>
           </div>
-        )}
-        {!loggedIn && (
-          <>
-            <Login onLogin={handleLogin}/>
-            <Register onRegister={handleRegister}/>
-          </>
-        )}
       </div>
     </div>
   );
